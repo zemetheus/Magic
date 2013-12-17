@@ -32,16 +32,16 @@ public class EnvironmentManager
 		String wdir = System.getProperty("user.dir");
 		
 		//Paths for main folders
-		Path images = Paths.get(wdir,"CardImages"),
+		Path cardImages = Paths.get(wdir,"CardImages"),
 			 requiredResourcesFile = Paths.get(wdir,"requiredResources.txt");
 		
 		//required resources
 		ArrayList<String> requiredResources, availableResources;
 		
-		if(checkFile(images) && checkFile(requiredResourcesFile))
+		if(checkFile(cardImages) && checkFile(requiredResourcesFile))
 		{
 			requiredResources = getRequiredResourcesList(requiredResourcesFile);
-			availableResources = getAvailableResourcesList(images);
+			availableResources = getAvailableResourcesList(cardImages);
 			
 			for(String s : requiredResources)
 			{
@@ -142,7 +142,7 @@ public class EnvironmentManager
 			return exists;
 		else
 		{
-			System.out.println(target.getFileName()+ "does not exist.");
+			System.out.println(target.getFileName()+ " does not exist.");
 			return exists;
 		}
 	}	
