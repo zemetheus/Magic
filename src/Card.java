@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import java.io.*;
 import java.nio.file.*;
 import java.util.Scanner;
@@ -79,24 +78,3 @@ public class Card
 		}
 	}
 }
-=======
-import java.util.HashMap;
-
-public class Card {
-	
-	private String name, cardType;
-	private int power, toughness;
-	
-	private ManaCost manaCost;
-	
-	//manaCost = new ManaCost({G, R, U, B, W, C});
-	
-	
-	
-	
-	
-	
-	
-	
-}
->>>>>>> 8e440063e2924be59ea2c1d397be9a05f635e957

@@ -2,40 +2,41 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class AddCardWindow extends JFrame
+public class AddCardWindow extends JPanel
 {
 	JButton addButton, cancelButton;
 	
-		
+	JMenuItem cardType1 = new JMenuItem("Instant");
+	JMenuItem cardType2 = new JMenuItem("Sorcery");
+	JMenuItem cardType3 = new JMenuItem("Enchantment");
+	JMenuItem cardType4 = new JMenuItem("Artifact");
+	JMenuItem cardType5 = new JMenuItem("Creature");
+	JMenuItem cardType6 = new JMenuItem("Land");
+	
+	JMenuBar cardTypeMenuBar = new JMenuBar();
+	JMenu cardTypeMenu = new JMenu("Card Type");
+	
+	JTextArea edit = new JTextArea(8, 40);
+	BorderLayout bord = new BorderLayout();
+	
 	public AddCardWindow()
 	{
-		super("AddCardWindow");
-		
-		addButton.addActionListener(new ActionListener()
+		/*addButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
 				
 			}
-		});
+		});*/
 		
-		cancelButton.addActionListener(new ActionListener()
+		/*cancelButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
 				setVisible(false);
 			}
-		});
+		});*/
 		
-		JMenuItem cardType1 = new JMenuItem("Instant");
-		JMenuItem cardType2 = new JMenuItem("Sorcery");
-		JMenuItem cardType3 = new JMenuItem("Enchantment");
-		JMenuItem cardType4 = new JMenuItem("Artifact");
-		JMenuItem cardType5 = new JMenuItem("Creature");
-		JMenuItem cardType6 = new JMenuItem("Land");
-		
-		JMenuBar cardTypeMenuBar = new JMenuBar();
-		JMenu cardTypeMenu = new JMenu("Card Type");
 		
 		cardTypeMenu.add(cardType1);
 		cardTypeMenu.add(cardType2);
@@ -46,13 +47,9 @@ public class AddCardWindow extends JFrame
 		
 		cardTypeMenuBar.add(cardTypeMenu);
 		
-		JTextArea edit = new JTextArea(8, 40);
-		BorderLayout bord = new BorderLayout();
 		setLayout(bord);
-		setJMenuBar(cardTypeMenuBar);
-		pack();
+		//setJMenuBar(cardTypeMenuBar);
 		setVisible(true);
-		
 	}
 	
 	

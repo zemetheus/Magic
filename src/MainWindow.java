@@ -17,6 +17,8 @@ public class MainWindow extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setFocusable(true);
+		
+		add(new AddCardWindow());
 	}
 	
 	/**
