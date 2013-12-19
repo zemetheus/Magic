@@ -20,11 +20,9 @@ public class MainWindow extends JFrame
 		setVisible(true);
 		setFocusable(true);
 		
-		//add(new AddCardWindow());
 		add(jbtAddCard);
 		
-		
-	     jbtAddCard.addActionListener(new ActionListener(){
+		jbtAddCard.addActionListener(new ActionListener(){
 	      public void actionPerformed(ActionEvent e)
 	      {
 	       AddCardWindow addCardWindow = new AddCardWindow();

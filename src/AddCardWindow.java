@@ -7,15 +7,29 @@ public class AddCardWindow extends JFrame
 	private static final int WINDOW_WIDTH = 750,
 			 WINDOW_HEIGHT = 700;
 	
+	String selection = null;
 	
+	ActionListener cBoxActionListener = new ActionListener()
+	{
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+        	selection = cardTypes[cardTypeBox.getSelectedIndex()];
+        	choice.setText(selection);
+        
+        }
+    };
 	
+        
 	
 	String[] cardTypes = {"Instant", "Sorcery", "Enchantment", "Artifact", "Creature", "Land"};
-	JComboBox cardTypeBox = new JComboBox(cardTypes);
+	JComboBox<String> cardTypeBox = new JComboBox<>(cardTypes);
+	
+	JTextArea choice = new JTextArea(10, 10);
 	
 	
 	
-	
+        
 	
 	
 	public AddCardWindow()
@@ -28,7 +42,7 @@ public class AddCardWindow extends JFrame
 		setVisible(true);
 		setFocusable(true);
 		
-		
+		cardTypeBox.addActionListener(cBoxActionListener);
 		
 		
 		
@@ -38,7 +52,9 @@ public class AddCardWindow extends JFrame
 		JLabel cardTypeLabel = new JLabel("Card Types: ");
 		pane.add(cardTypeLabel);
 		pane.add(cardTypeBox);
+		pane.add(choice);
 		add(pane);
+		
 		
 	}
 	
