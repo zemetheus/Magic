@@ -1,5 +1,5 @@
 import java.awt.*;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 public class MainWindow extends JFrame
@@ -7,6 +7,8 @@ public class MainWindow extends JFrame
 	private static final int WINDOW_WIDTH = 750,
 							 WINDOW_HEIGHT = 700;
 	
+	JButton jbtAddCard = new JButton("Add Card");
+    //add listener for jbutton
 	
 	public MainWindow()
 	{
@@ -18,7 +20,16 @@ public class MainWindow extends JFrame
 		setVisible(true);
 		setFocusable(true);
 		
-		add(new AddCardWindow());
+		//add(new AddCardWindow());
+		add(jbtAddCard);
+		
+		
+	     jbtAddCard.addActionListener(new ActionListener(){
+	      public void actionPerformed(ActionEvent e)
+	      {
+	       AddCardWindow addCardWindow = new AddCardWindow();
+	      }
+	     });
 	}
 	
 	/**
