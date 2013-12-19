@@ -7,15 +7,31 @@ public class AddCardWindow extends JFrame
 	private static final int WINDOW_WIDTH = 750,
 			 WINDOW_HEIGHT = 700;
 	
-	String selection = null;
+	String cardTypeSelection = null;
 	
 	ActionListener cBoxActionListener = new ActionListener()
 	{
         @Override
         public void actionPerformed(ActionEvent e)
         {
-        	selection = cardTypes[cardTypeBox.getSelectedIndex()];
-        	choice.setText(selection);
+        	cardTypeSelection = cardTypes[cardTypeBox.getSelectedIndex()];
+        	choice.setText(cardTypeSelection);
+        	
+        	
+        	/*A case system upon card type selection to determine other pertinent information.
+        	 * ----Each selection throws a text area which seeks additional information from the user
+        	 * -------Instant: Card Name, Mana Cost
+        	 * -------Sorcery: Card Name, Mana Cost
+        	 * -------Enchantment: Card Name, Mana Cost
+        	 * -------Artifact: Card Name, Mana Cost
+        	 * -------Creature: Card Name, Mana Cost, Creature Type, Power, Toughness
+        	 * -------Land: Card Name
+        	 */
+        	
+        	switch(choice)
+        	{
+        		case 0:
+        			
         
         }
     };
@@ -25,7 +41,7 @@ public class AddCardWindow extends JFrame
 	String[] cardTypes = {"Instant", "Sorcery", "Enchantment", "Artifact", "Creature", "Land"};
 	JComboBox<String> cardTypeBox = new JComboBox<>(cardTypes);
 	
-	JTextArea choice = new JTextArea(10, 10);
+	JTextArea choice = new JTextArea();
 	
 	
 	
@@ -48,12 +64,17 @@ public class AddCardWindow extends JFrame
 		
 		
 		
-		JPanel pane = new JPanel();
+		JPanel cardTypeCBox = new JPanel();
 		JLabel cardTypeLabel = new JLabel("Card Types: ");
-		pane.add(cardTypeLabel);
-		pane.add(cardTypeBox);
-		pane.add(choice);
-		add(pane);
+		cardTypeCBox.add(cardTypeLabel);
+		cardTypeCBox.add(cardTypeBox);
+		add(cardTypeCBox);
+		
+		JPanel userInput = new JPanel();
+		JLabel cardName = new JLabel("Card Name: ");
+		JLabel manaCost = new JLabel("Mana Cost: ");
+		JLabel creatureType = new JLabel("Creature Type: ");
+		JLabel 
 		
 		
 	}
