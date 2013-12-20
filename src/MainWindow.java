@@ -8,8 +8,10 @@ public class MainWindow extends JFrame
 							 WINDOW_HEIGHT = 700;
 	
 	JButton jbtAddCard = new JButton("Add Card");
-    //add listener for jbutton
+    JButton jbtViewCard = new JButton("View Card");
 	
+    FlowLayout fl = new FlowLayout();
+    
 	public MainWindow()
 	{
 		super("Magic: The Gathering");
@@ -17,10 +19,14 @@ public class MainWindow extends JFrame
 		setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
 		center(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setLayout(fl);
+		
 		setVisible(true);
 		setFocusable(true);
-		
+
 		add(jbtAddCard);
+		add(jbtViewCard);
 		
 		jbtAddCard.addActionListener(new ActionListener(){
 	      public void actionPerformed(ActionEvent e)
@@ -28,6 +34,13 @@ public class MainWindow extends JFrame
 	       AddCardWindow addCardWindow = new AddCardWindow();
 	      }
 	     });
+		
+		jbtViewCard.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				CardViewer cardViewer = new CardViewer("arbor_elf.jpg","arbor_elf");
+			}
+		});
 	}
 	
 	/**
