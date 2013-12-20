@@ -1,11 +1,3 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-
-import java.io.*;
-import java.io.File.*;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 

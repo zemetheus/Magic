@@ -66,8 +66,7 @@ public class AddCardWindow extends JFrame
         }
     };
 	
-    String[] cardTypes = {"Instant", "Sorcery", "Enchantment", "Artifact", "Creature", "Land"};
-	JComboBox<CardTypes> cardTypeBox = new JComboBox<>(CardTypes.values());
+    JComboBox<CardTypes> cardTypeBox = new JComboBox<>(CardTypes.values());
 	
 	JTextArea choice = new JTextArea();
 
