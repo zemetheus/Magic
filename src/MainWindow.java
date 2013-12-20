@@ -28,17 +28,22 @@ public class MainWindow extends JFrame
 		add(jbtAddCard);
 		add(jbtViewCard);
 		
-		jbtAddCard.addActionListener(new ActionListener(){
-	      public void actionPerformed(ActionEvent e)
-	      {
-	       AddCardWindow addCardWindow = new AddCardWindow();
-	      }
-	     });
+		jbtAddCard.addActionListener(new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+			{
+			   	AddCardWindow addCardWindow = new AddCardWindow();
+			}
+	    });
 		
-		jbtViewCard.addActionListener(new ActionListener(){
+		jbtViewCard.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent e)
 			{
-				CardViewer cardViewer = new CardViewer("arbor_elf.jpg","arbor_elf");
+				String imageName_EXT = JOptionPane.showInputDialog("Which card would you like to view? Include File Extension."),
+					   imageName = imageName_EXT.substring(0,imageName_EXT.length()-4);
+				
+				CardViewer cardViewer = new CardViewer(imageName_EXT,imageName);
 			}
 		});
 	}
