@@ -21,7 +21,7 @@ public class AddCardWindow extends JFrame
         	cardTypeSelection = CardTypes.values()[cardTypeBox.getSelectedIndex()];
         	choice.setText(cardTypeSelection.toString());
         	
-        	cardDataInput();
+        	
         
         }
     };
