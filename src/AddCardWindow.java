@@ -11,6 +11,8 @@ public class AddCardWindow extends JFrame
 	
 	private GridLayout gl = new GridLayout(3,1);
 	
+	private JPanel userInput = new JPanel();
+	
 	private ActionListener cBoxActionListener = new ActionListener()
 	{
         @Override
@@ -19,55 +21,12 @@ public class AddCardWindow extends JFrame
         	cardTypeSelection = CardTypes.values()[cardTypeBox.getSelectedIndex()];
         	choice.setText(cardTypeSelection.toString());
         	
-        	
-        	/*
-        	 * A case system upon card type selection to determine other pertinent information.
-        	 * ----Each selection throws a text area which seeks additional information from the user
-        	 * -------Instant: Card Name, Mana Cost
-        	 * -------Sorcery: Card Name, Mana Cost
-        	 * -------Enchantment: Card Name, Mana Cost
-        	 * -------Artifact: Card Name, Mana Cost
-        	 * -------Creature: Card Name, Mana Cost, Creature Type, Power, Toughness
-        	 * -------Land: Card Name
-        	 */
-        	
-        	switch(cardTypeSelection)
-        	{
-        		case Instant:
-        		{
-        			break;
-        		}
-        		case Sorcery:
-        		{
-        			break;
-        		}
-        		case Enchantment:
-        		{
-        			break;
-        		}
-        		case Artifact:
-        		{
-        			break;
-        		}
-        		case Creature:
-        		{
-        			break;
-        		}
-        		case Land:
-        		{
-        			break;
-        		}
-        		default:
-        		{
-        			System.exit(1);
-        		}
-        	}
+        	cardDataInput();
         
         }
     };
 	
-    String[] cardTypes = {"Instant", "Sorcery", "Enchantment", "Artifact", "Creature", "Land"};
-	JComboBox<CardTypes> cardTypeBox = new JComboBox<>(CardTypes.values());
+    JComboBox<CardTypes> cardTypeBox = new JComboBox<>(CardTypes.values());
 	
 	JTextArea choice = new JTextArea();
 
@@ -91,18 +50,73 @@ public class AddCardWindow extends JFrame
 		cardTypeCBox.add(cardTypeBox);
 		add(cardTypeCBox);
 		
-		JPanel userInput = new JPanel();
-		userInput.setLayout(new GridLayout(9,1));
-		JLabel jlTemp;
+	    userInput.setLayout(new GridLayout(9,1));
+	    add(userInput);
+	}
+	
+	public void cardDataInput()
+	{
+		/*
+    	 * A case system upon card type selection to determine other pertinent information.
+    	 * ----Each selection throws a text area which seeks additional information from the user
+    	 * -------Instant: Card Name, Mana Cost
+    	 * -------Sorcery: Card Name, Mana Cost
+    	 * -------Enchantment: Card Name, Mana Cost
+    	 * -------Artifact: Card Name, Mana Cost
+    	 * -------Creature: Card Name, Mana Cost, Creature Type, Power, Toughness
+    	 * -------Land: Card Name
+    	 */
 		
-		for(CardStats cs : CardStats.values())
-		{
-			jlTemp = new JLabel(cs.getLabel());
-			userInput.add(jlTemp);
-			userInput.add(new JTextField());
-		}
 		
-		add(userInput);
+		switch(cardTypeSelection)
+    	{
+    		case Instant:
+    		{
+    			break;
+    		}
+    		case Sorcery:
+    		{
+    			break;
+    		}
+    		case Enchantment:
+    		{
+    			break;
+    		}
+    		case Artifact:
+    		{
+    			break;
+    		}
+    		case Creature:
+    		{
+    			JLabel jlCardStats;
+    			
+    			for(CardStats cs : CardStats.values())
+    			{
+    				jlCardStats = new JLabel(cs.getLabel());
+    				userInput.add(jlCardStats);
+    				userInput.add(new JTextField());
+    			}
+    			break;
+    		}
+    		case Land:
+    		{
+    			userInput.add(new JLabel(CardStats.CARDNAME.getLabel()));
+    			userInput.add(new JTextField());
+    			break;
+    		}
+    		default:
+    		{
+    			System.exit(1);
+    		}
+    	}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	
